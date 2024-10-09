@@ -1,0 +1,46 @@
+# build.ninja
+timer = /usr/bin/time -p
+compiler_gnu = g++
+compiler_llvm = clang++
+
+
+cflags_debug = -g -march=native
+cflags_optimizations = -Ofast -mavx2 -mbmi -march=native
+
+# annoying but works
+cflags_warn_all_llvm = -Weverything
+cflags_warn_base = -Wall -Wextra -Wpedantic
+cflags_warn_options = -Wunused -Wshadow -Wconversion -Wcast-qual -Wconversion-null -Woverlength-strings -Wpointer-arith -Wunused-local-typedefs -Wunused-result -Wvarargs -Wvla -Wwrite-strings
+cflags_warn_ignore =
+
+cflags_ext = -fext-numeric-literals -flto -fdiagnostics-color=always
+cflags_ext_llvm = -flto -fdiagnostics-color=always
+
+
+cflags_gnu_debug =  -std=c++23 $cflags_debug $cflags_warn_base $cflags_warn_options $cflags_warn_ignore $cflags_ext
+cflags_gnu =  -std=c++23 $cflags_optimizations $cflags_warn_base $cflags_warn_options $cflags_warn_ignore $cflags_ext
+cflags_llvm =  -std=c++20 $cflags_optimizations $cflags_warn_all_llvm $cflags_ext_llvm
+
+
+clibs_location = -L./libs
+clibs_includes = -Isrc
+
+clibs_static = -static-libstdc++
+build_directory = bin
+
+rule cc_compile_cmnd
+  command = mkdir -p bin && echo -e "\n\n\033[1;32mBuilding:\033[0m $out" && $timer $compiler_gnu $cflags_gnu $clibs_location $clibs_includes $in -o $build_directory/$out;
+
+rule cc_compile_cmnd_debug
+  command =  mkdir -p bin && echo -e "\n\n\033[1;32mBuilding:\033[0m $out" && $timer $compiler_gnu $cflags_gnu_debug $clibs_location $clibs_includes $in -o $build_directory/$out;
+
+build fuzzy_demo: cc_compile_cmnd tests/fuzzy_demo.cpp
+build compare_test: cc_compile_cmnd tests/compare.cpp
+build bench: cc_compile_cmnd tests/bench.cpp
+build bench_small: cc_compile_cmnd tests/bench_small.cpp
+build bench_small_lsh: cc_compile_cmnd tests/bench_small_lsh.cpp
+build bench_lst: cc_compile_cmnd tests/bench_lsh.cpp
+build sample_1: cc_compile_cmnd tests/sample.cpp
+build sample_2: cc_compile_cmnd tests/sample_2.cpp
+build sample_paths: cc_compile_cmnd tests/sample_paths.cpp
+build sample_list: cc_compile_cmnd tests/sample_list.cpp
