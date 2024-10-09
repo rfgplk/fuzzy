@@ -1,5 +1,5 @@
 <div align="right">
-  <img src="https://github.com/user-attachments/assets/ddff98b7-a390-43a7-86b3-91ef5e4da6be" alt="fuzzy_logo" width="300"/>
+  <img src="https://github.com/user-attachments/assets/ddff98b7-a390-43a7-86b3-91ef5e4da6be" alt="fuzzy_logo" width="200"/>
 
 # Fuzzy
 ### a C++ Hamming/Levenshtein distance approximate string matching library
