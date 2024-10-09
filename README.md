@@ -24,14 +24,13 @@ fuzzy_exists(token, strings); // check if an exact match of a string exists
 
 ### Example
 ```cpp
-    #include "src/fuzzy.hpp"
-    std::string to_find = "Hello";
-    std::vector<std::string> words = { "apples", "ello", "chameleon", "asphalt", "behemoth" };
-    auto f = fuzzy::fuzzy_find(to_find, words, 3); // get top three results 
-    std::string best_match = f(); // best match string by name
-    long double likelihood = f.likelihood(); // get likelihood of string match
-    std::string likelihood = f[n]; // get name of string at index, ordered from highest likelihood hit
-
+#include "src/fuzzy.hpp"
+std::string to_find = "Hello";
+std::vector<std::string> words = { "apples", "ello", "chameleon", "asphalt", "behemoth" };
+auto f = fuzzy::fuzzy_find(to_find, words, 3); // get top three results 
+std::string best_match = f(); // best match string by name
+long double likelihood = f.likelihood(); // get likelihood of string match
+std::string likelihood = f[n]; // get name of string at index, ordered from highest likelihood hit
 ```
 
 ## Installation
