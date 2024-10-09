@@ -1,4 +1,4 @@
-<div align="right">
+<div align="center">
   <img src="https://github.com/user-attachments/assets/ddff98b7-a390-43a7-86b3-91ef5e4da6be" alt="fuzzy_logo" width="200"/>
 
 # Fuzzy
