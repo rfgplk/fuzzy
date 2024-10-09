@@ -6,9 +6,9 @@
 ... so *fast* you'd think he was a **hash**. 
 </div>
 
-Fuzzy is an extremely fast **approximate string matching** (fuzzy finding) library.
+Fuzzy is an extremely fast **approximate string matching** (fuzzy finding) library written in C++20.
 
-It offers two primary modes of operation, one via the Hamming metric and the other via the Levenshtein distance (by means of the W-F algorithm). The Hamming metric is extremely efficient, being able to parse and match strings at speeds of ~3-4 GB/s per thread based on current testing (Haswell/Broadwell/Skylake). The second, more precise mode of operation, is via the Levenshtein metric, which is slower but offers more accurate hits. 
+It offers two primary modes of operation, one via the Hamming metric and the other via the Levenshtein distance (by means of the W-F algorithm). The Hamming metric is extremely efficient, being able to parse and match strings at speeds of ~3-4 GB/s per thread based on current testing (Haswell/Broadwell/Skylake). The second, more precise mode of operation, is via the Levenshtein metric, which is slower but offers more accurate hits. Requires AVX2. 
 
 
 ## Usage
