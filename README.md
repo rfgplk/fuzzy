@@ -1,7 +1,5 @@
-![fuzzy_no_txt](https://github.com/user-attachments/assets/5ab11672-0dc6-4ad6-bec9-6904e6226df4)
-
 <div align="right">
-
+![fuzzy_small](https://github.com/user-attachments/assets/ddff98b7-a390-43a7-86b3-91ef5e4da6be)
 
 # Fuzzy
 ### a C++ Hamming/Levenshtein distance approximate string matching library
