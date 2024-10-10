@@ -38,8 +38,9 @@ long double
 metric_hamming(T &a, T &b)
 {
   distances_t<int> dists;
-  auto f = hamming(a, b, dists);
-  return (static_cast<long double>(f));
+  hamming_prepare(a, dists);
+  hamming_align(a, b, dists);
+  return (static_cast<long double>(arithmean(dists)));
 }
 
 template <is_string T>
